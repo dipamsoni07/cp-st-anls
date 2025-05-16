@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stock Manager</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f4f4f4;
+      }
+      h1 {
+        color: #333;
+      }
+      form {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"],
+      input[type="number"],
+      input[type="date"] {
+        padding: 8px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      input[type="submit"] {
+        padding: 8px 15px;
+        border-radius: 5px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      .message {
+        padding: 10px;
+        background-color: #e0ffe0;
+        border: 1px solid #90ee90;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Stock Manager</h1>
+
+    {% if message %}
+    <div class="message">{{ message }}</div>
+    {% endif %}
+
+    <h2>Add Stock</h2>
+    <form action="/add-stock" method="post">
+      <input type="text" name="isin" placeholder="ISIN" required />
+      <input type="number" name="quantity" placeholder="Quantity" required />
+      <input type="submit" value="Add Stock" />
+    </form>
+
+    <h2>Remove Stock</h2>
+    <form action="/remove-stock" method="post">
+      <input type="text" name="isin" placeholder="ISIN to remove" required />
+      <input type="submit" value="Remove Stock" />
+    </form>
+
+    <h2>Current Stocks</h2>
+    <ul>
+      {% for stock in stocks %}
+      <li>{{ stock }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

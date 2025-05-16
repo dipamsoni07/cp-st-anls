@@ -1,0 +1,12 @@
+aiohttp==3.11.14
+pydantic
+protobuf==5.29.3
+requests
+websockets==13.1
+python-dotenv
+dash
+pandas
+fastapi
+uvicorn
+python-multipart==0.0.20
+coloredlogs

@@ -1,0 +1,5 @@
+-> venv create:
+$conda create -p venv python==3.10.16 -y
+
+-> venv activate:
+$conda activate venv/
